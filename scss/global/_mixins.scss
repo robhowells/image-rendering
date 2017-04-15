@@ -1,0 +1,50 @@
+/*========================================
+
+	Mixins
+	Credit: Sonny Prince - joint developer of mixins.scss
+	https://github.com/sonnyprince
+	_____________
+
+========================================*/
+
+/*========================================
+
+	REM Cross Browser Font Size 
+	Calculator
+
+========================================*/
+
+// sass-lint:disable-block no-duplicate-properties  
+
+@mixin font-size($size-value: 1.6) {
+	font-size: ($size-value * 1) + px;
+	font-size: ($size-value / 10) + rem;
+}
+
+// sass-lint:enable-block no-duplicate-properties  
+
+/*========================================
+
+   Positioning
+
+========================================*/
+
+@mixin center-vertically {
+	top: 50%;
+	position: absolute;
+	transform: translateY(-50%);
+}
+
+/*========================================
+
+	Responsive Fonts
+
+========================================*/
+
+@mixin rf($break, $size) {
+  @for $i from 1 through length($break) {
+	@include breakpoint(nth($break, $i)) {
+	  @include font-size(nth($size, $i))
+	}
+  }
+}

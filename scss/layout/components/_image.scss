@@ -1,0 +1,22 @@
+/*========================================
+
+	Image Styles
+	_____________
+
+
+========================================*/
+
+.image {
+	width: 100%;
+	display: block;
+	&__element {
+		height: auto;
+		width: 100%;
+		.no-js & {
+			display: none;
+		}
+		&.no-js-fallback {
+			display: block;
+		}
+	}
+}

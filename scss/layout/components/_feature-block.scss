@@ -1,0 +1,36 @@
+/*========================================
+
+	Feature Block Styles
+	_____________
+
+
+========================================*/
+
+.feature-block {
+	margin-bottom: 20px;
+	&__image {
+		overflow: hidden;
+		padding-top: 60%;
+		position: relative;
+	}
+	&__image-element {
+		top: 50%;
+		margin: 0;
+		transition: .2s;
+		position: absolute;
+		transform: translateY(-50%) scale(1);
+	}
+	&__panel {
+		padding: 10px 0;
+	}
+	@include breakpoint(small-desktop-up) {
+		&:hover {
+			.feature-block__image-element {
+				transform: translateY(-50%) scale(1.1);
+			}
+			.panel__title {
+				color: $accent;
+			}
+		}
+	}
+}
