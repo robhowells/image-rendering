@@ -1,0 +1,41 @@
+/*========================================
+
+	Hover Block Styles
+	_____________
+
+
+========================================*/
+
+.hover-block {
+	&__color {
+		&::before,
+		&::after {
+			opacity: 0;
+			width: 100%;
+			transition: .2s opacity;
+			@include center-vertically;
+		}
+		&::before {
+			content: attr(data-hover-content);
+			color: $white-default;
+			text-align: center;
+			z-index: z(overlay) + 1;
+		}
+		&::after {
+			content: '';
+			height: 100%;
+			z-index: z(overlay);
+			background: rgba($accent, .5);
+		}
+	}
+	@include breakpoint(small-desktop-up) {
+		&:hover {
+			.hover-block__color {
+				&::before,
+				&::after {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}

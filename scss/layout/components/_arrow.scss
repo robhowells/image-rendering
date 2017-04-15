@@ -1,0 +1,35 @@
+/*========================================
+
+	Arrow Styles
+	_____________
+
+
+========================================*/
+
+.arrow {
+    width: 20px;
+    margin-left: 5px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+	&::before {
+		content: '';
+    	left: 0;
+		width: 20px;
+		height: 2px;
+		background: $primary;
+		@include center-vertically;
+		transition: .2s width, .2s background;
+	}
+	&::after {
+		content: '';
+		top: 50%;
+    	right: 0;
+	    padding: 3px;
+	    position: absolute;
+		border: solid $primary;
+	    border-width: 0 2px 2px 0;
+	    transition: .2s right, .2s border-color;
+	    transform: translateY(-50%) rotate(-45deg);
+	}
+}

@@ -1063,7 +1063,7 @@ footer {
 
 /*========================================
 
-	Image Styles
+	Panel Styles
 	_____________
 
 
@@ -1071,16 +1071,56 @@ footer {
 .panel {
   padding: 10px 0; }
   .panel__title {
-    margin: 0; }
+    margin: 0;
+    -webkit-transition: .2s color;
+    transition: .2s color; }
 
 /*========================================
 
-	Hover Color Styles
+	Arrow Styles
 	_____________
 
 
 ========================================*/
-.hover-color::before, .hover-color::after {
+.arrow {
+  width: 20px;
+  margin-left: 5px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle; }
+  .arrow::before {
+    content: '';
+    left: 0;
+    width: 20px;
+    height: 2px;
+    background: #2a2b2f;
+    top: 50%;
+    position: absolute;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    -webkit-transition: .2s width, .2s background;
+    transition: .2s width, .2s background; }
+  .arrow::after {
+    content: '';
+    top: 50%;
+    right: 0;
+    padding: 3px;
+    position: absolute;
+    border: solid #2a2b2f;
+    border-width: 0 2px 2px 0;
+    -webkit-transition: .2s right, .2s border-color;
+    transition: .2s right, .2s border-color;
+    -webkit-transform: translateY(-50%) rotate(-45deg);
+            transform: translateY(-50%) rotate(-45deg); }
+
+/*========================================
+
+	Hover Block Styles
+	_____________
+
+
+========================================*/
+.hover-block__color::before, .hover-block__color::after {
   opacity: 0;
   width: 100%;
   -webkit-transition: .2s opacity;
@@ -1090,19 +1130,20 @@ footer {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%); }
 
-.hover-color::before {
+.hover-block__color::before {
   content: attr(data-hover-content);
   color: #fff;
   text-align: center;
-  z-index: 2; }
+  z-index: 2001; }
 
-.hover-color::after {
+.hover-block__color::after {
   content: '';
   height: 100%;
+  z-index: 2000;
   background: rgba(52, 221, 221, 0.5); }
 
 @media (min-width: 1024px) {
-  .hover-color:hover::before, .hover-color:hover::after {
+  .hover-block:hover .hover-block__color::before, .hover-block:hover .hover-block__color::after {
     opacity: 1; } }
 
 /*========================================
@@ -1124,8 +1165,28 @@ footer {
     -webkit-transition: .2s;
     transition: .2s;
     position: absolute;
-    -webkit-transform: translateY(-50%) scale(1);
-            transform: translateY(-50%) scale(1); }
+    -webkit-transform: translateZ(0) translateY(-50%) scale(1);
+            transform: translateZ(0) translateY(-50%) scale(1); }
+  .feature-block__tag {
+    top: 20px;
+    opacity: 0;
+    left: -10px;
+    position: absolute;
+    z-index: 2;
+    -webkit-transition: .4s left, .4s opacity;
+    transition: .4s left, .4s opacity;
+    -webkit-transition-delay: .4s;
+            transition-delay: .4s; }
+    .feature-block__tag::before {
+      content: attr(data-tag-content);
+      padding: 10px;
+      color: #2a2b2f;
+      display: block;
+      background: #fff; }
+    .loaded .feature-block__tag,
+    .no-js .feature-block__tag {
+      left: 0;
+      opacity: 1; }
   .feature-block__panel {
     padding: 10px 0; }
   @media (min-width: 1024px) {
@@ -1133,4 +1194,10 @@ footer {
       -webkit-transform: translateY(-50%) scale(1.1);
               transform: translateY(-50%) scale(1.1); }
     .feature-block:hover .panel__title {
-      color: #34dddd; } }
+      color: #34dddd; }
+    .feature-block:hover .arrow::before {
+      width: 25px;
+      background: #34dddd; }
+    .feature-block:hover .arrow::after {
+      right: -5px;
+      border-color: #34dddd; } }
