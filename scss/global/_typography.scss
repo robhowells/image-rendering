@@ -50,9 +50,6 @@ a {
 	line-height: 1.5;
 	margin-bottom: 1em;
 	@include rf(normal desktop phablet, 14 13 12);
-	&:last-child {
-		margin-bottom: 0;
-	}
 }
 
 p,

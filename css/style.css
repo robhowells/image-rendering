@@ -948,10 +948,6 @@ a {
     a {
       font-size: 12px;
       font-size: 1.2rem; } }
-  p:last-child,
-  li:last-child,
-  a:last-child {
-    margin-bottom: 0; }
 
 p,
 li,
@@ -998,12 +994,31 @@ a {
 	_____________
 
 ========================================*/
+/*========================================
+
+	Animation Helpers
+
+========================================*/
 .fade-in {
   opacity: 0;
   transition: opacity 1s; }
-  .fade-in.faded-in {
+  .fade-in.faded-in,
+  .no-js .fade-in {
     opacity: 1; }
 
+.lazyload,
+.lazyloading {
+  opacity: 0; }
+
+.lazyloaded {
+  opacity: 1;
+  transition: opacity .4s; }
+
+/*========================================
+
+	Layout Helpers
+
+========================================*/
 .section--padded {
   padding: 40px 0; }
 
@@ -1136,11 +1151,13 @@ footer {
 
 ========================================*/
 .feature-block {
+  position: relative;
   margin-bottom: 20px; }
   .feature-block__image {
     overflow: hidden;
     padding-top: 60%;
-    position: relative; }
+    position: relative;
+    background: #efefef; }
   .feature-block__image-element {
     top: 50%;
     margin: 0;
@@ -1154,14 +1171,14 @@ footer {
     left: -10px;
     position: absolute;
     z-index: 2;
-    transition: .4s left, .4s opacity;
-    transition-delay: .4s; }
+    transition: .4s left, .4s opacity; }
     .feature-block__tag::before {
       content: attr(data-tag-content);
       padding: 10px;
       color: #2a2b2f;
       display: block;
       background: #fff; }
+    .scrollreveal--shown .feature-block__tag,
     .no-js .feature-block__tag {
       left: 0;
       opacity: 1; }

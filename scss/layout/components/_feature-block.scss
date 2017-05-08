@@ -7,11 +7,13 @@
 ========================================*/
 
 .feature-block {
+	position: relative;
 	margin-bottom: 20px;
 	&__image {
 		overflow: hidden;
 		padding-top: 60%;
 		position: relative;
+		background: $secondary;
 	}
 	&__image-element {
 		top: 50%;
@@ -27,7 +29,6 @@
 		position: absolute;
 		z-index: z(default) + 1;
 		transition: .4s left, .4s opacity;
-		transition-delay: .4s;
 		&::before {
 			content: attr(data-tag-content);
 			padding: 10px;
@@ -35,7 +36,7 @@
 			display: block;
 			background: $white-default;
 		}
-		//TODO - scroll reveal - show tag
+		.scrollreveal--shown &,
 		.no-js & {
 			left: 0;
 			opacity: 1;

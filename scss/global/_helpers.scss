@@ -5,13 +5,36 @@
 
 ========================================*/
 
+/*========================================
+
+	Animation Helpers
+
+========================================*/
+
 .fade-in {
 	opacity: 0;
 	transition: opacity 1s;
-	&.faded-in {
+	&.faded-in,
+	.no-js & {
 		opacity: 1;
 	}
 }
+
+.lazyload,
+.lazyloading {
+	opacity: 0;
+}
+
+.lazyloaded {
+	opacity: 1;
+	transition: opacity .4s;
+}
+
+/*========================================
+
+	Layout Helpers
+
+========================================*/
 
 .section--padded {
 	padding: 40px 0;
