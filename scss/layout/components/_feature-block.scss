@@ -35,7 +35,7 @@
 			display: block;
 			background: $white-default;
 		}
-		.loaded &,
+		//TODO - scroll reveal - show tag
 		.no-js & {
 			left: 0;
 			opacity: 1;

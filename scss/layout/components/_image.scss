@@ -9,6 +9,7 @@
 .image {
 	width: 100%;
 	display: block;
+	//TODO - lazy load - fade in image src once loaded
 	&__element {
 		height: auto;
 		width: 100%;

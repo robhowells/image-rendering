@@ -13,20 +13,6 @@
 	}
 }
 
-.lazyload {
-	top: 20px;
-	opacity: 0;
-	position: relative;
-	transition: opacity .4s, top .4s;
-	visibility: hidden;
-	&.loaded,
-	.no-js & {
-		top: 0;
-		opacity: 1;
-		visibility: visible;
-	}
-}
-
 .section--padded {
 	padding: 40px 0;
 }
