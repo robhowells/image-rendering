@@ -1,13 +1,10 @@
+//LazySizes initializes itself automatically
+//This file to be used for any modifications / extensions
+
 var lazyloading = (function ($) {
 
     var init = function() {
-        new LazyLoad ({
-			elements_selector: ".lazyload__element",
-			threshold: 0,
-			callback_load: function(element) {
-				$(element).closest('.lazyload').addClass('loaded');
-			}
-		});
+
     };
 
     return {
